@@ -1,9 +1,11 @@
+import { ethers } from "ethers";
+
 export interface ICustomProvider {
     web3: any;
     account?: string;
     accounts: string[];
     networkId?: number;
-    signer: signer: null | ethers.providers.JsonRpcSigner;
+    signer: null | ethers.providers.JsonRpcSigner;
     balance: number;
     loading: boolean;
     error: any;
