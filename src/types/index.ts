@@ -3,6 +3,7 @@ export interface ICustomProvider {
     account?: string;
     accounts: string[];
     networkId?: number;
+    signer: signer: null | ethers.providers.JsonRpcSigner;
     balance: number;
     loading: boolean;
     error: any;
