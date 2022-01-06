@@ -28,20 +28,19 @@ export const Web3Config = reactive<IWeb3Config>({
   contracts: {},
 });
 
-const onChangeAccountDefault = async (startApp: Ref<Function>, AppState: any) => {
+const onChangeAccountDefault = async (startApp: Ref<Function>) => {
   ProviderState.web3 = new ethers.providers.Web3Provider(
     window.ethereum,
     "any"
   );
   const user = ProviderState.web3.getSigner();
   startApp.value && (await startApp.value());
-  AppState.signer = user;
+  ProviderState.signer = user;
 };
 
 export const useWeb3Provider = (
   initContract: Function,
   onChangeAccount: null | Function,
-  AppState: any,
   config: Record<string, any>,
   contracts: Record<string, IContractDefinition>
 ) => {
@@ -49,10 +48,6 @@ export const useWeb3Provider = (
 
   const getBalance = async (address: string) => {
     ProviderState.balance = await ProviderState.web3.getBalance(address);
-    AppState.provider = {
-      ...AppState.provider,
-      balance: formatBalance(ProviderState.balance),
-    };
   };
 
   const formatBalance = (balance: number): string => {
@@ -67,7 +62,7 @@ export const useWeb3Provider = (
     () => ProviderState.account,
     async (current, previous) => {
       if (current && current !== previous) {
-        await onChangeAccountDefault(startApp, AppState);
+        await onChangeAccountDefault(startApp);
         await getBalance(current);
         await getAccounts();
       } else if (!current) {
@@ -77,7 +72,7 @@ export const useWeb3Provider = (
   );
 
   const resetProviderState = async () => {
-    AppState.signer = null;
+    ProviderState.signer = null;
     ProviderState.web3 = null;
     ProviderState.account = undefined;
     ProviderState.accounts = [];
@@ -97,12 +92,12 @@ export const useWeb3Provider = (
       });
       window.ethereum.on("chainChanged", async () => {
         !onChangeAccount
-          ? await onChangeAccountDefault(startApp, AppState)
+          ? await onChangeAccountDefault(startApp)
           : await onChangeAccount();
       });
       window.ethereum.on("accountsChanged", async (accounts: string[]) => {
         !onChangeAccount
-          ? await onChangeAccountDefault(startApp, AppState)
+          ? await onChangeAccountDefault(startApp)
           : await onChangeAccount();
       });
     }
