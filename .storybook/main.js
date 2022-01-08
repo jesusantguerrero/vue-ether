@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -5,7 +7,15 @@ module.exports = {
   ],
   "addons": [
     "@storybook/addon-links",
-    "@storybook/addon-essentials"
+    "@storybook/addon-essentials",
+    {
+        name: '@storybook/addon-postcss',
+        options: {
+          postcssLoaderOptions: {
+            implementation: require('postcss'),
+          },
+        },
+      },
   ],
-  "framework": "@storybook/vue3"
+  "framework": "@storybook/vue3",
 }
