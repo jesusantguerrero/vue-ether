@@ -1,11 +1,10 @@
 {
   "name": "vue-ethers",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
-    "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -48,5 +47,9 @@
   },
   "dependencies": {
     "blockies-ts": "^1.0.0"
-  }
+  },
+  "files": [
+    "src/*",
+    "dist/*"
+  ]
 }
