@@ -37,5 +37,6 @@ export const useEthAuth = (provider?: any) => {
         login: AuthState.provider?.login,
         logout: AuthState.provider?.logout,
         loginWithProvider: AuthState.provider?.loginWithProvider,
+        AuthState,
     }
 }

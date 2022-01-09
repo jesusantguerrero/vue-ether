@@ -19,8 +19,7 @@
   "exports": {
     ".": {
       "import": "./dist/vue-ethers.es.js",
-      "require": "./dist/vue-ethers.umd.js",
-      "type": "./dist/index.d.ts"
+      "require": "./dist/vue-ethers.umd.js"
     },
     "./**": "./**"
   },

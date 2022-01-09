@@ -28,13 +28,13 @@ const avatarUrl= computed(() => {
 </script>
 
 <template>
-<div class="flex items-center justify-center px-5 rounded-md cursor-pointer hover:bg-black hover:bg-opacity-25">
-    <slot>
-        <img :src="avatarUrl" class="rounded-full" />
-    </slot>
+<div class="flex items-center justify-center px-5 rounded-md cursor-pointer">
     <span>
         {{ maskedWallet }}
     </span>
+    <slot>
+        <img :src="avatarUrl" class="rounded-full ml-2" />
+    </slot>
     <span v-if="copyable" class="cursor-pointer">
         <svg
             width="24"
