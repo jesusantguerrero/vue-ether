@@ -1,6 +1,6 @@
 {
   "name": "vue-ethers",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -8,7 +8,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "main": "./src/index.ts",
+  "main": "./dist/vue-ethers.umd.js",
   "peerDependencies": {
     "ethers": "^5.5.2",
     "moralis": "0.0.183",
