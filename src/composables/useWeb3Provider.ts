@@ -39,12 +39,12 @@ const onChangeAccountDefault = async (startApp: Ref<Function>) => {
 };
 
 export const useWeb3Provider = (
-  initContract: Function,
+  initAuth: Function,
   onChangeAccount: null | Function,
   config: Record<string, any>,
   contracts: Record<string, IContractDefinition>
 ) => {
-  const startApp = ref(initContract);
+  const startApp = ref(initAuth);
 
   const getBalance = async (address: string) => {
     ProviderState.balance = await ProviderState.web3.getBalance(address);

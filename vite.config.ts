@@ -11,7 +11,7 @@ export default defineConfig({
       name: 'vue-ethers'
     },
     rollupOptions: {
-      external: ['ethers', 'vue']
+      external: ['ethers', 'vue', 'moralis', 'web3']
     }
   },
 })
