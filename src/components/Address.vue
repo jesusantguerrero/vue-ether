@@ -19,7 +19,7 @@ const props = defineProps({
 });
 const address = inject('address', '');
 const maskedWallet = computed(() => {
-    return props.size ? formatMaskedAddress(address, props.size) : address;
+    return props.size ? formatMaskedAddress(address || "", props.size) : address;
 });
 
 const avatarUrl= computed(() => {
