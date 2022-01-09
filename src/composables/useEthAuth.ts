@@ -9,7 +9,7 @@ export const AuthState = reactive({
     onLoaded: () => {},
 })
 
-export const useEthAuth = (provider) => {
+export const useEthAuth = (provider?: any) => {
     if (provider) {
         AuthState.provider = provider
     }

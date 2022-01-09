@@ -1,6 +1,6 @@
 {
   "name": "vue-ethers",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -18,11 +18,13 @@
   },
   "exports": {
     ".": {
-      "import": "./src/index.ts",
-      "require": "./src/index.ts"
-    }
+      "import": "./dist/vue-ethers.es.js",
+      "require": "./dist/vue-ethers.umd.js",
+      "type": "./dist/index.d.ts"
+    },
+    "./**": "./**"
   },
-  "module": "./src/index.mjs",
+  "module": "./dist/vue-ethers.es.js",
   "sideEffects": false,
   "devDependencies": {
     "@babel/core": "^7.16.0",
