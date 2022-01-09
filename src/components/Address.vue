@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, inject } from 'vue';
+import { computed, inject, ref } from 'vue';
 import { formatMaskedAddress } from '../utils';
 import * as blockies from 'blockies-ts';
  
@@ -17,13 +17,13 @@ const props = defineProps({
         default: 0,
     }
 });
-const address = inject('address', '');
+const address = inject('address', ref());
 const maskedWallet = computed(() => {
-    return props.size ? formatMaskedAddress(address || "", props.size) : address;
+    return props.size ? formatMaskedAddress(address.value || "", props.size) : address;
 });
 
-const avatarUrl= computed(() => {
-    return props.avatar ? blockies.create({ seed: address }).toDataURL() : '';
+const avatarUrl = computed(() => {
+    return props.avatar ? blockies.create({ seed: address.value }).toDataURL() : '';
 });
 </script>
 
@@ -33,7 +33,7 @@ const avatarUrl= computed(() => {
         {{ maskedWallet }}
     </span>
     <slot>
-        <img :src="avatarUrl" class="rounded-full ml-2" />
+        <img :src="avatarUrl" class="ml-2 rounded-full" />
     </slot>
     <span v-if="copyable" class="cursor-pointer">
         <svg

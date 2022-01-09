@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { provide } from "vue";
+import { computed, provide, reactive } from "vue";
 import { AuthState, useEthAuth } from "../composables/useEthAuth";
-import { useWeb3Provider, ProviderState } from "../composables/useWeb3Provider";
+import { useWeb3Provider } from "../composables/useWeb3Provider";
 
 const props = defineProps({
   provider: {
@@ -19,15 +19,15 @@ const props = defineProps({
 })
 
 const { login, logout, initAuth } = useEthAuth(props.provider);
-useWeb3Provider(initAuth, null, props.config, props.contracts);
+const { ProviderState } = useWeb3Provider(initAuth, null, props.config, props.contracts);
 
-provide("address", ProviderState.account);
-provide("provider", props.provider);
-provide("auth", {
+provide("address", computed(() => ProviderState.account));
+provide("provider", computed(() => props.provider));
+provide("auth", computed(() => ({
   login,
   logout,
   AuthState
-})
+})))
 </script>
 
 <script lang="ts">

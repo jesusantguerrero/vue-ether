@@ -1,4 +1,5 @@
 import { ethers } from "ethers";
+import { ComputedRef } from "vue";
 
 export interface ICustomProvider {
     web3: any;
@@ -10,7 +11,7 @@ export interface ICustomProvider {
     loading: boolean;
     error: any;
     connected: boolean;
-    isConnectedToValidNetwork: boolean;
+    isConnectedToValidNetwork: ComputedRef<boolean>;
     chainId: string;
     validChainId: number;
     currency: string;

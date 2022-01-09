@@ -2,7 +2,7 @@ import { reactive, computed, onMounted, watch, ref, inject, Ref } from "vue";
 import { ethers } from "ethers";
 import { IContractDefinition, ICustomProvider, IWeb3Config } from "../types";
 
-export const ProviderState: ICustomProvider = reactive({
+export const ProviderState = reactive<ICustomProvider>({
   web3: null,
   account: undefined,
   accounts: [],
@@ -48,10 +48,6 @@ export const useWeb3Provider = (
 
   const getBalance = async (address: string) => {
     ProviderState.balance = await ProviderState.web3.getBalance(address);
-  };
-
-  const formatBalance = (balance: number): string => {
-    return Number(ethers.utils.formatEther(balance)).toFixed(4);
   };
 
   const getAccounts = async () => {
@@ -111,9 +107,15 @@ export const useWeb3Provider = (
     startApp,
     getAccounts,
     resetProviderState,
+    ProviderState
   };
 };
 
 export const useWeb3 = () => {
-  return inject("ProviderState", ProviderState);
+  return {
+    ProviderState,
+    ethers,
+
+  }
+
 };
