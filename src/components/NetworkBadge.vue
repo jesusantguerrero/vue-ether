@@ -21,7 +21,6 @@ const formattedChain = computed(() => {
     return parseInt(props.chain, 16);
 });
 
-
 const bgColor = computed(() => {
     return formattedChain.value === Number(props.validChain) ? 'text-green-300 bg-green-500' : 'text-red-300 bg-red-500';
 });

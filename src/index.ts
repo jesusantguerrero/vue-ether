@@ -6,4 +6,5 @@ export { MoralisProvider } from "./composables/providers/moralisProvider";
 export { default as DappProvider } from "./components/DappProvider.vue";
 export { default as AccountButton } from "./components/AccountButton.vue";
 export { default as Address } from "./components/Address.vue";
+export { default as AddressInput } from "./components/AddressInput.vue";
 export { default as NetworkBadge } from "./components/NetworkBadge.vue";
