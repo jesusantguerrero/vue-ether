@@ -1,8 +1,7 @@
-import { describe, vi ,  it, fn, expect } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { mount } from "@vue/test-utils";
 import Address from "../components/Address.vue";
 import { nextTick, ref } from 'vue';
-import { Document} from 'happy-dom';
 
 describe("Address component", () => {
     it("should render the main address", () => {
