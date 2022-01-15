@@ -14,7 +14,7 @@ const props = defineProps({
     },
     pastingClass: {
         type: String,
-        default: 'text-purple-500 hover:text-purple-400',
+        default: 'text-gray-500 hover:text-gray-400',
     },
 });
 
@@ -34,9 +34,9 @@ const emitValue = (evt: InputEvent) => {
 </script>
 
 <template>
-<div class="flex items-center justify-between py-2 px-5 rounded-md cursor-pointer border ">
+<div class="flex items-center justify-between px-5 py-2 border rounded-md cursor-pointer ">
     <input :value="modelValue" @input="emitValue" class="w-full focus:outline-transparent" placeholder="0xxxxxxxxxxxxxxxxxxxxxxxxxxx" />
-    <button class=" font-bold" :class="pastingClass" @click="paste()">
+    <button class="font-bold " :class="pastingClass" @click="paste()">
         {{ pastingText }}
     </button>
 </div>
