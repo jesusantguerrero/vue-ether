@@ -14,4 +14,8 @@ export default defineConfig({
       external: ['ethers', 'vue', 'moralis', 'web3']
     }
   },
+  test: {
+    global: true,
+    environment: 'happy-dom',
+  }
 })
