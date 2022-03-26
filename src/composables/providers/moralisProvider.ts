@@ -1,25 +1,25 @@
 /* eslint-disable node/no-extraneous-import */
 /* eslint-disable node/no-missing-import */
-import { Moralis } from "moralis/dist/moralis";
+import { Moralis } from "moralis";
 import Web3 from "web3/dist/web3.min";
 import { ProviderState } from "../useWeb3Provider";
 
 
 export const MoralisProvider = (AppState: any, config: Record<string, string>) => {
   window.Web3 = Web3;
-  Moralis.initialize(config.moralisKey);
-  Moralis.serverURL = config.moralisServerUrl;
+  Moralis.start({serverUrl: config.moralisServerUrl, appId: config.moralisKey });
 
   const login = async () => {
     let user: Moralis.User|null = null;
     let error: Error|null = null;
-
     if (!ProviderState.isConnectedToValidNetwork) {
       new Error("Please connect to the correct network");
+      console.error("DEBUG:: Please connect to the correct network or set the correct network in the config");
       return;
     }
+    
 
-    user = await Moralis.Web3.authenticate({
+    user = await Moralis.authenticate({
       provider: window.ethereum,
       chainId: Number(config.chainId),
     });
