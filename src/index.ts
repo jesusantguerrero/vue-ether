@@ -8,3 +8,4 @@ export { default as AccountButton } from "./components/AccountButton.vue";
 export { default as Address } from "./components/Address.vue";
 export { default as AddressInput } from "./components/AddressInput.vue";
 export { default as NetworkBadge } from "./components/NetworkBadge.vue";
+export { useSecureEnv } from "./utils";

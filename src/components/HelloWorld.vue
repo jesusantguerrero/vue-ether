@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { MoralisProvider, DappProvider, AuthState } from '../index';
-import { useSecureString } from "../utils/index"
+import { MoralisProvider, DappProvider, AuthState, useSecureEnv } from '../index';
 import ExampleHeader from './ExampleHeader.vue'
 
 // @ts-ignore
 import { contracts } from "../../contracts.json";
-const { getEnv } = useSecureString(import.meta.env);
+const { getEnv } = useSecureEnv(import.meta.env);
 const config = {
     moralisServerUrl: getEnv("VITE_MORALIS_SERVER_URL"),
     moralisKey: getEnv("VITE_MORALIS_API_KEY"),  

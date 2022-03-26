@@ -13,9 +13,8 @@
   "main": "./dist/vue-ethers.umd.js",
   "peerDependencies": {
     "ethers": "^5.5.2",
-    "moralis": "0.0.183",
-    "vue": "^3.2.16",
-    "web3": "^1.6.1"
+    "moralis": "1.5.5",
+    "vue": "^3.2.31"
   },
   "exports": {
     ".": {
@@ -45,10 +44,9 @@
     "typescript": "^4.4.3",
     "vite": "^2.6.4",
     "vitest": "^0.1.16",
-    "vue": "^3.2.16",
+    "vue": "^3.2.31",
     "vue-loader": "^16.8.3",
-    "vue-tsc": "^0.3.0",
-    "web3": "^1.6.1"
+    "vue-tsc": "^0.3.0"
   },
   "dependencies": {
     "blockies-ts": "^1.0.0"

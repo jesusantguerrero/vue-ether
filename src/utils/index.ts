@@ -25,7 +25,7 @@ export const formatEther = (value: string | number): string => {
   return Number(ethers.utils.formatEther(value)).toFixed(4);
 }
 
-export const useSecureString = (
+export const useSecureEnv = (
   envInstance: Record<string | number | symbol, string> | any
 ) => {
   const getEnv = (key: string, defaultValue = ""): string => {
